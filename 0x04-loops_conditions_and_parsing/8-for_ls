@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
 #list current directory beginning with first dash
-list="$(ls .)"
-for i in "$list"; do
-	a=0
-	for j in "$i"; do
-		if [ $a -ne 0 ]
-		then
-			printf "$j"
+mapfile -t list < <(ls -- *)
+a=0
+for i in "${list[@]}"; do
+	for ((j = 0; j < ${#i}; j++)); do
+		char="${i:j:1}"
+		if [ $a -ne 0 ]; then
+			printf '%s' "$char"
 		fi
-		if [ "$j" -eq "-" ]
-		then
-			((a++))
+		if [ "$char" = "-" ]; then
+			a=1
 		fi
 	done
+	if [ $a -ne 0 ]; then
+		printf "\n"
+	fi
+	a=0
 done
