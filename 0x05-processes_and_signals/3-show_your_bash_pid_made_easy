@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Shows pid of bash processes
+pids=$(pgrep bash)
+IFS=$'\n'
+for line in $pids; do
+	echo "$line bash"
+done
