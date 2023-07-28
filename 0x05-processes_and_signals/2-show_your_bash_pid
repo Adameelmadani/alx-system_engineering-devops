@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Show files that contains bash
+# shellcheck disable=SC2009
+text=$(ps -auxf)
+word="bash"
+IFS=$'\n'
+for line in $text; do
+	if [[ $line == *"$word"* ]]; then
+		echo "$line"
+	fi
+done
