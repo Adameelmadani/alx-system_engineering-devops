@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 #It kills the 4.task
-pkill 4-to_infinity_and_beyond
+pid=$(pidof 4-to_infinity_and_beyond)
+kill pid
