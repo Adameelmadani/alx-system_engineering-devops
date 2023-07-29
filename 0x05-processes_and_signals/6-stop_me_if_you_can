@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 #Kill a file using pkill
 pkill -15 "4-to_infinity_and_beyond"
+echo "Terminated"
