@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Here we get ip addresses of every active IPv4 interface
+i=2
+while (true); do
+	ip=$(ifconfig | cut -d $'\n' -f $i | cut -d " " -f 10)
+	if [ "$ip" = "" ]; then
+		break
+	fi
+	echo "$ip"
+	((i = i + 8))
+done
