@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#We'll change facebook.com and localhost IDs
+localIP="127.0.0.1"
+#fIP=$(ping -c 1 facebook.com | cut -d $'\n' -f 1 | cut -d "(" -f 2 | cut -d ")" -f 1)
+cp /etc/hosts ~/hosts.new
+sed -i 's/'$localIP'/127.0.0.2/' ~/hosts.new
+echo "8.8.8.8	facebook.com" >> ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
