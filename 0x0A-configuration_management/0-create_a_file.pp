@@ -1,4 +1,4 @@
-#comment
+#create new file in /tmp/school with mode 0744, owner, group and content
 
 file { '/tmp/school/0-create_a_file.pp':
   ensure  => file,
