@@ -1,5 +1,7 @@
 #Configuring config file
 file_line { 'Add new line':
   path   => 'etc/ssh/ssh_config',
-  line   => "Host *\n  IdentityFile ~/.ssh/school\n  PasswordAuthentication no",
+  line   => 'Host *
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no',
 }
