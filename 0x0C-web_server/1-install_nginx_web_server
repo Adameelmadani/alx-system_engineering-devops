@@ -1,11 +1,4 @@
 #!/usr/bin/env bash
 #Installing nginx using it in port 80
 apt-get install -y nginx
-echo "<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-<h1>Hello World!</h1>
-</body>
-</html>" > /var/www/html/index.nginx-debian.html 
+echo "Hello World!" > /var/www/html/index.nginx-debian.html 
