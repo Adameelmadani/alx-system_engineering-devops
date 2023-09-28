@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#Installing nginx using it in port 80 and redirecting /redirect_me to another URL
+sudo apt-get -y update
+sudo apt-get install -y nginx
+
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+
+sudo service nginx start
+
+old_str="server_name _;"
+new_str="server_name _;\n\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QcNBLSSn8Vg;\n\t}"
+
+sed -i "s|$old_str|$new_str|g" /etc/nginx/sites-available/default
+
+sudo service nginx start
