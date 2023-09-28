@@ -3,27 +3,6 @@
 apt-get -y update
 apt-get install -y nginx
 
-echo "<!DOCTYPE html>
-<html>
-<head>
-    <title>Hello World</title>
-</head>
-<body>
-    <h1>Hello World!</h1>
-</body>
-</html>" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 
-echo "server {
-    listen 80;
-    location / {
-    root /var/www/html;
-    index index.html;
-    }
-}" > /etc/nginx/sites-available/mywebsite
-
-ln -s /etc/nginx/sites-available/mywebsite /etc/nginx/sites-enabled/
-
-pids=$(pgrep nginx)
-for pid in $pids; do
-    kill -s HUP "$pid"
-done
+service nginx start
