@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #Installing nginx using it in port 80
+apt-get -y update
 apt-get install -y nginx
 
 echo "<!DOCTYPE html>
