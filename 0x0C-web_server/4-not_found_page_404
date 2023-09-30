@@ -3,9 +3,8 @@
 sudo apt-get -y update
 sudo apt-get install -y nginx
 
-message="Ceci n\'est pas une page"
 sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
-sudo sh -c 'echo "$message" > /var/www/html/custom_404.html'
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html > /dev/null
 
 old_str="server_name _;"
 new_str="server_name _;\n\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
