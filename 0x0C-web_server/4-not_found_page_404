@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#Installing nginx using it in port 80 and redirecting /redirect_me to another URL
+sudo apt-get -y update
+sudo apt-get install -y nginx
+
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+sudo sh -c "echo 'Ceci n'est pas une page' > /var/www/html/custom_404.html"
+
+old_str="server_name _;"
+new_str="server_name _;\n\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+new_str2="server_name _;\n\n\terror_page 404 /custom_404.html;"
+
+sed -i "s|$old_str|$new_str|" /etc/nginx/sites-enabled/default
+sed -i "s|$old_str|$new_str2|" /etc/nginx/sites-available/default
+
+sudo service nginx start
