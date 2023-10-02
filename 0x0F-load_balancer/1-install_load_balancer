@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #Configure our HAProxy so that it tracks the two servers using roundrobin algo
+sudo apt-get -y update
+sudo apt-get -y install haproxy
 text="frontend myfrontend
 	bind *:80
 	default_backend mybackend
