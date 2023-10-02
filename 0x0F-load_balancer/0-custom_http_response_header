@@ -4,3 +4,4 @@ f="$(hostname)"
 old="location / {"
 new_f="location / {\n\t\tadd_header X-Served-By \"$f\";"
 sudo sed -i -e "s|$old|$new_f|" /etc/nginx/sites-enabled/default
+sudo service nginx start
