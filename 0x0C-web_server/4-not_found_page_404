@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Installing nginx using it in port 80 and redirecting /redirect_me to another URL
-#sudo apt-get -y update
-#sudo apt-get install -y nginx
+sudo apt-get -y update
+sudo apt-get install -y nginx
 
 sudo sh -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_404.html > /dev/null
