@@ -8,4 +8,4 @@ backend mybackend
 	server server1 100.25.164.203:80 check
 	server server2 54.90.3.135:80 check"
 echo "$text" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
-sudo service haproxy start
+sudo service haproxy restart
