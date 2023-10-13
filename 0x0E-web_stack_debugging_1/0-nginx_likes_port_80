@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 #This will configure my nginx web server
-sudo apt update
-sudo apt install -y nginx
-sudo service nginx start
+apt update
+apt install -y nginx
+service nginx start
