@@ -2,4 +2,4 @@
 #This will configure my nginx web server
 sed -i 's/[0-9]\+ default_server/80 default_server/' /etc/nginx/sites-enabled/default
 service nginx restart
-service nginx stop
+sed -i 's/status_of_proc -p $PID "$DAEMON" "$NAME" && exit 0 || exit $?/echo " * nginx is not running"/' /etc/init.d/nginx
