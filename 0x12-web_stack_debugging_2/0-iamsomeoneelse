@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#Execute command whoami with different users
+su - "$1" -c "whoami"
