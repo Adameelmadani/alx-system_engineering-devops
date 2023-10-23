@@ -2,8 +2,8 @@
 """
 This is our module
 """
-import requests
 import sys
+import requests
 
 
 user_id = int(sys.argv[1])
