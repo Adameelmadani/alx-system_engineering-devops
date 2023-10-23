@@ -22,8 +22,9 @@ if __name__ == "__main__":
     lines = []
     for do in todo_json:
         if do.get('userId') == user_id:
-            line = "\"{}\",\"{}\",\"{}\",\"{}\"".format(user_id, user_name,
-                    do.get('completed'), do.get('title'))
+            lf = "\"{}\",\"{}\"".format(user_id, user_name)
+            ls = ",\"{}\",\"{}\"".format(do.get('completed'), do.get('title'))
+            line = lf + ls
             lines.append(line)
 
     with open(file_name, "w") as file:
