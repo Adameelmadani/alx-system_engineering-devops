@@ -14,8 +14,8 @@ def top_ten(subreddit):
     if r.status_code == 404:
         print("None")
         return
-    r_json = r.json()
+    """r_json = r.json()
     ch_list = r_json.get("data").get("children")
     for i in range(1, 11):
-        """print(ch_list[i].get("data").get("title"))"""
-        print("OK")
+        print(ch_list[i].get("data").get("title"))"""
+    print("OK")
