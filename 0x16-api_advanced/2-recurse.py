@@ -15,8 +15,6 @@ def recurse(subreddit, hot_list=[], after=""):
         return None
     r_json = r.json()
     ch_list = r_json.get("data").get("children")
-    if after == "" and len(ch_list) == 0:
-        return None
     for i in range(0, len(ch_list)):
         ch_list[i] = ch_list[i].get("data").get("title")
     hot_list += ch_list
