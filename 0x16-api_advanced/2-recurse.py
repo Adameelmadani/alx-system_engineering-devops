@@ -9,7 +9,7 @@ def recurse(subreddit, hot_list=[], after=""):
     """
     This is our function
     """
-    url = "https://www.reddit.com/r/{}.json?after={}".format(subreddit, after)
+    url = "https://www.reddit.com/r/{}/json?after={}".format(subreddit, after)
     r = requests.get(url)
     if r.status_code == 404:
         return None
