@@ -15,6 +15,6 @@ def top_ten(subreddit):
         print("None")
         return
     r_json = r.json()
-    ch_list = r_json.get("data").get("children")
-    for i in range(1, 11):
-        print(ch_list[i].get("data").get("title"))
+    ch_lists = r_json.get("data").get("children")
+    for ch_list in ch_lists:
+        print(ch_list.get("data").get("title"))
