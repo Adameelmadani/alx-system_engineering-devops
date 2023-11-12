@@ -9,15 +9,16 @@ def recurse(subreddit, hot_list=[], after=""):
     """
     This is our function
     """
-    url = "https://www.reddit.com/r/{}/json?after={}".format(subreddit, after)
-    r = requests.get(url)
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    user_agent = {"User-Agent": "ALX project about advanced api"}
+    r = requests.get(url, params={"after": after}, headers=user_agent)
     if r.status_code == 404:
         return None
     r_json = r.json()
+    after = r_json.get("data").get("after")
+    if not after:
+        return hot_list
     ch_list = r_json.get("data").get("children")
-    for i in range(0, len(ch_list)):
-        ch_list[i] = ch_list[i].get("data").get("title")
-    hot_list += ch_list
-    if r_json.get("data").get("after", None):
-        return recurse(subreddit, hot_list, r_json.get("data").get("after"))
-    return hot_list
+    for ch_l in ch_list:
+        hot_list.append(ch_l.get("data").get("title"))
+    return recurse(subreddit, hot_list, after)
